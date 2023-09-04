@@ -1,6 +1,6 @@
 public class Student {
-    private String firstName;
-    private String lastName;
+   private String firstName;
+   private String lastName;
     private String identifier;
     private double averageGrade;
 
@@ -11,10 +11,30 @@ public class Student {
         this.averageGrade = averageGrade;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
 
-    public void printIdentifierLastLetter() {
-        char lastLetter = identifier.charAt(identifier.length() - 1);
-        System.out.println("Last character of the identifier: " + lastLetter);
+    public String getLastName() {
+        return lastName;
+    }
+    public String getIdentifier() {
+        return identifier;
+    }
+
+    public double getAverageGrade() {
+        return averageGrade;
+    }
+
+    public static void printIdentifierLastLetter(Student[] students) {
+        for (Student student : students) {
+            String identifier = student.getIdentifier();
+            int identifierLength = identifier.length();
+            if (identifierLength > 0) {
+                char lastLetter = identifier.charAt(identifierLength - 1);
+                System.out.println("Last letter of identifier for " + student.firstName + " " + student.lastName + ": " + lastLetter);
+            }
+        }
     }
 
 
